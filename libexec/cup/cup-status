@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+
+echo "-----------------------------------------------"
+echo "lad: $ETH_FROM"
+echo
+echo "ETH: $(seth balance $(seth --to-address $ETH_FROM))"
+echo "WETH $(token balance $WETH $ETH_FROM)"
+echo "PETH $(token balance $PETH $ETH_FROM)"
+echo "DAI: $(token balance $DAI $ETH_FROM)"
+echo "-----------------------------------------------"
+echo
+dai --cup=$CUP_ID cup

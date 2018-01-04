@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+OPTS="
+--
+C,chain=chain        remote node configuration preset
+"
+set -e
+
+eval "$(git rev-parse --parseopt -- "$@" <<<"$OPTS" || echo exit $?)"
+
+while [[ $1 ]]; do
+  case $1 in
+    --)              shift; break;;
+
+    -C|--chain)      shift; export SETH_CHAIN=$1;;
+    -P|--gas-price)  shift; export ETH_GAS_PRICE=$1;;
+
+    *) printf "${0##*/}: internal error: %q\n" "$1"; exit 1
+  esac; shift
+done
+
+export SETH_CHAIN=${SETH_CHAIN:-ethlive}
+export ETH_GAS_PRICE=${ETH_GAS_PRICE:-30000000000}
+
+case "$SETH_CHAIN" in
+  ethlive)
+    # Config
+    export ETH_FROM=0x11cCBA532D039ba88B81C6be47d383c50005C729
+    export CUP_ID=266
+    export DAI_TUB=0x448a5065aebb8e423f0896e6c5d525c040f59af3
+    # Tokens
+    export WETH=0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+    export PETH=0xf53ad2c6851052a81b42133467480961b2321c09
+    export MKR=0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2
+    export DAI=0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359
+    ;;
+  kovan)
+    # Config
+    export ETH_FROM=da15dce70ab462e66779f23ee14f21d993789ee3
+    export CUP_ID=18
+    export DAI_TUB=0xa6bfc88aa5a5981a958f9bcb885fcb3db0bf941e
+    # Tokens
+    export WETH=0xd0a1e359811322d97991e03f863a0c30c2cf029c
+    export PETH=0x1508d42373235103081bd4d223379469f686bc55
+    export MKR=0x4572baca0e43504234f86380fcdd38fbf81c7888
+    export DAI=0x95878488a599e1d821c0ff2bc079b9e7f96d95be
+    ;;
+esac
+
+echo $SETH_CHAIN
+echo
+
+export RHOC=0x168296bb09e24a88805cb9c33356536b980d3fc5
+export RLC=0x607F4C5BB672230e8672085532f7e901544a7375
+
+
+"${0##*/}-${1-help}" "${@:2}"

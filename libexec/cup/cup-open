@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+dai -C $SETH_CHAIN -F $ETH_FROM open

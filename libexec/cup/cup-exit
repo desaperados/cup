@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+dai exit $(seth --to-hex $(seth --to-wei $1))
+cup status

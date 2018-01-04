@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+dai --cup=$CUP_ID lock $(seth --to-hex $(seth --to-wei $1))
+cup status

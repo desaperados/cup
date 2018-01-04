@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+seth send $WETH --value $(seth --to-wei $1)
+cup status

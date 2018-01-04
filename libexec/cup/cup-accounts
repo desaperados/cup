@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+for account in $(seth accounts); do
+  echo "-----------------------------------------------"
+  echo "lad: $account"
+  echo
+  echo "ETH: $(seth balance $(seth --to-address $account))"
+  echo "WETH $(token balance $WETH $account)"
+  echo "DAI: $(token balance $DAI $account)"
+done
