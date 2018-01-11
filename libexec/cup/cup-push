@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cup wrap "$@"
+cup join "$@"
+cup lock "$@"

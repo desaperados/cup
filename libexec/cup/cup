@@ -18,7 +18,7 @@ while [[ $1 ]]; do
   esac; shift
 done
 
-export SETH_CHAIN=${SETH_CHAIN:-ethlive}
+export SETH_CHAIN=${SETH_CHAIN:-kovan}
 export ETH_GAS_PRICE=${ETH_GAS_PRICE:-30000000000}
 
 case "$SETH_CHAIN" in
