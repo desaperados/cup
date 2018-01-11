@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-seth send $WETH --value $(seth --to-wei $1)
+seth send $(dai gem) --value $(seth --to-wei $1)
 cup status

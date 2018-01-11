@@ -5,9 +5,10 @@ echo "-----------------------------------------------"
 echo "lad: $ETH_FROM"
 echo
 echo "ETH: $(seth balance $(seth --to-address $ETH_FROM))"
-echo "WETH $(token balance $WETH $ETH_FROM)"
-echo "PETH $(token balance $PETH $ETH_FROM)"
-echo "DAI: $(token balance $DAI $ETH_FROM)"
+echo "WETH $(token balance $(dai gem) $ETH_FROM)"
+echo "PETH $(token balance $(dai peth) $ETH_FROM)"
+echo "DAI: $(token balance $(dai dai) $ETH_FROM)"
+echo "MKR: $(token balance $(dai gov) $ETH_FROM)"
 echo "-----------------------------------------------"
 echo
 dai --cup=$CUP_ID cup

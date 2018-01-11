@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+dai --cup=$CUP_ID wipe $(seth --to-hex $(seth --to-wei $1))
+cup status

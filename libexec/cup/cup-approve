@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-token approve $WETH $DAI_TUB $(seth --to-wei 1000000000 ETH)
-token approve $PETH $DAI_TUB $(seth --to-wei 1000000000 ETH)
-token approve $DAI $DAI_TUB $(seth --to-wei 1000000000 ETH)
+token approve $(dai gem) $DAI_TUB $(seth --to-wei 1000000000 ETH)
+token approve $(dai peth) $DAI_TUB $(seth --to-wei 1000000000 ETH)
+token approve $(dai dai) $DAI_TUB $(seth --to-wei 1000000000 ETH)
+token approve $(dai gov) $DAI_TUB $(seth --to-wei 1000000000 ETH)

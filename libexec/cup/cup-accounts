@@ -5,6 +5,6 @@ for account in $(seth accounts); do
   echo "lad: $account"
   echo
   echo "ETH: $(seth balance $(seth --to-address $account))"
-  echo "WETH $(token balance $WETH $account)"
-  echo "DAI: $(token balance $DAI $account)"
+  echo "WETH $(token balance $(dai gem) $account)"
+  echo "DAI: $(token balance $(dai dai) $account)"
 done
