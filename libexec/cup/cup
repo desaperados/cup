@@ -26,11 +26,13 @@ case "$SETH_CHAIN" in
     export ETH_FROM=0x11cCBA532D039ba88B81C6be47d383c50005C729
     export CUP_ID=266
     export DAI_TUB=0x448a5065aebb8e423f0896e6c5d525c040f59af3
+    export OASIS=0x14fbca95be7e99c15cc2996c6c9d841e54b79425
     ;;
   kovan)
     export ETH_FROM=da15dce70ab462e66779f23ee14f21d993789ee3
     export CUP_ID=9
     export DAI_TUB=0xa71937147b55deb8a530c7229c442fd3f31b7db2
+    export OASIS=0x8cf1Cab422A0b6b554077A361f8419cDf122a9F9
     ;;
 esac
 

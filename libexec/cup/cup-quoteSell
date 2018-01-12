@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -e
+
+bal=$(token balance $(dai gem) $ETH_FROM)
+weth=${1:-$bal}
+
+sig="getPayAmount(address,address,uint)"
+base=$(dai gem)
+quote=$(dai dai)
+amt=$(seth --to-uint256 $(seth --to-wei "$weth eth"))
+rtn=$(seth call $OASIS $sig $quote $base $amt)
+
+if [[ $rtn -eq "0x" ]]; then
+  echo "$weth WETH - volume not available"
+  exit
+fi
+
+fill=$(seth --to-fix 18 $(seth --to-dec $rtn))
+price=$(echo "scale=2;$fill / $weth" | bc)
+
+echo "Reference (pip):"
+echo "\$$(dai tag) USD/ETH"
+echo
+echo "Oasis Quote:"
+echo
+echo "Buy: $fill DAI"
+echo "Sell: $weth WETH"
+echo "Price: $price DAI/WETH"
